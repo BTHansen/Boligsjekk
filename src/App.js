@@ -5,7 +5,7 @@ const AHUS = { name: "Ahus", lat: 59.9312, lon: 10.9483, maxMin: 35 };
 const OSLO_S = { name: "Oslo S", lat: 59.9109, lon: 10.7502, maxMin: 25 };
 
 const ENTUR_GEOCODE = "https://api.entur.io/geocoder/v1/autocomplete";
-const ENTUR_JOURNEY = "https://api.entur.io/journey-planner/v3/graphql";
+const ENTUR_JOURNEY = "/api/journey";
 
 const JOURNEY_QUERY = `
 query ($from: Location!, $to: Location!, $dateTime: DateTime!) {
