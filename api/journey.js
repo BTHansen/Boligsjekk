@@ -6,6 +6,11 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "POST") return res.status(405).end();
 
+  let body = req.body;
+  if (typeof body === "string") {
+    body = JSON.parse(body);
+  }
+
   const response = await fetch(
     "https://api.entur.io/journey-planner/v3/graphql",
     {
@@ -14,7 +19,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
         "ET-Client-Name": "boligsjekk-privat",
       },
-      body: JSON.stringify(req.body),
+      body: JSON.stringify(body),
     }
   );
 
